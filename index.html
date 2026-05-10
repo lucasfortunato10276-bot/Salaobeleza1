@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Concept Salon & Spa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <style>
+   :root {
+    --accent: #d4af37;
+    --bg: #0a0a0a;
+    --surface: #161616;
+    --text: #ffffff;
+    --text-muted: #a0a0a0;
+    --transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:25px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:9999;
+    transition:var(--transition);
+}
+
+nav.scrolled{
+    background:rgba(10,10,10,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(212,175,55,.1);
+    padding:15px 5%;
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.8rem;
+    letter-spacing:4px;
+    color:var(--accent);
+    text-decoration:none;
+}
+
+.nav-menu{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:.75rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    overflow:hidden;
+}
+
+/* IMAGEM FORÇADA RESPONSIVA */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1920');
+
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+
+    z-index:-1;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1000px;
+    padding:0 20px;
+}
+
+.hero p{
+    letter-spacing:5px;
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(3.5rem,10vw,6.5rem);
+    font-weight:400;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.btn-gold{
+    display:inline-block;
+    padding:20px 45px;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    text-decoration:none;
+    letter-spacing:3px;
+    font-size:.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    transition:var(--transition);
+}
+
+.btn-gold:hover{
+    background:var(--accent);
+    color:#000;
+}
+
+/* ========================= */
+/* SEÇÕES */
+/* ========================= */
+
+section{
+    padding:140px 10%;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.card{
+    background:var(--surface);
+    padding:60px 40px;
+    border:1px solid #222;
+    text-align:center;
+}
+
+.card i{
+    font-size:2.5rem;
+    color:var(--accent);
+    margin-bottom:25px;
+}
+
+/* ========================= */
+/* ABOUT */
+/* ========================= */
+
+.about{
+    display:flex;
+    align-items:center;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+.about-img{
+    flex:1;
+    min-width:380px;
+    height:550px;
+
+    background:
+    url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=800')
+    center/cover;
+
+    border:1px solid var(--accent);
+}
+
+.about-text{
+    flex:1;
+    min-width:380px;
+}
+
+/* ========================= */
+/* ZIGZAG */
+/* ========================= */
+
+.zigzag-section{
+    display:flex;
+    align-items:center;
+    gap:100px;
+    margin-bottom:150px;
+    flex-wrap:wrap;
+}
+
+.zigzag-section.reverse{
+    flex-direction:row-reverse;
+}
+
+.image-stack{
+    flex:1;
+    position:relative;
+    min-width:380px;
+    height:500px;
+}
+
+.image-stack img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:4px;
+}
+
+.image-stack::after{
+    content:'';
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:100%;
+    height:100%;
+    border:2px solid var(--accent);
+    z-index:-1;
+}
+
+.content-box{
+    flex:1;
+    min-width:380px;
+}
+
+.content-box h3{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    margin-bottom:25px;
+    color:var(--accent);
+}
+
+.content-box p{
+    color:var(--text-muted);
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.feature-list{
+    list-style:none;
+    margin-bottom:40px;
+}
+
+.feature-list li{
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+}
+
+.feature-list i{
+    color:var(--accent);
+    margin-right:15px;
+    font-size:.9rem;
+}
+
+/* ========================= */
+/* REVIEWS */
+/* ========================= */
+
+.reviews-marquee{
+    background:var(--surface);
+    padding:60px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.marquee-content{
+    display:inline-block;
+    animation:scroll-left 40s linear infinite;
+}
+
+.review-item{
+    display:inline-block;
+    background:#0d0d0d;
+    padding:30px 50px;
+    margin:0 20px;
+    border-radius:50px;
+    border:1px solid #222;
+}
+
+.review-item span{
+    color:var(--accent);
+    font-weight:600;
+    margin-right:10px;
+}
+
+@keyframes scroll-left{
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+    background:#050505;
+    padding:100px 10% 40px;
+    border-top:1px solid #1a1a1a;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:60px;
+    margin-bottom:80px;
+}
+
+.footer-col h4{
+    color:var(--accent);
+    letter-spacing:2px;
+    margin-bottom:30px;
+    text-transform:uppercase;
+    font-size:.8rem;
+}
+
+.footer-col ul{
+    list-style:none;
+}
+
+.footer-col ul li{
+    margin-bottom:15px;
+}
+
+.footer-col ul a{
+    color:var(--text-muted);
+    text-decoration:none;
+    transition:.3s;
+    font-size:.9rem;
+}
+
+.footer-col ul a:hover{
+    color:var(--accent);
+    padding-left:5px;
+}
+
+.social-links a{
+    font-size:1.4rem;
+    color:#fff;
+    margin-right:25px;
+}
+
+.footer-bottom{
+    text-align:center;
+    border-top:1px solid #1a1a1a;
+    padding-top:40px;
+    color:var(--text-muted);
+    font-size:.8rem;
+    letter-spacing:1px;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:1024px){
+
+    nav{
+        padding:18px 4%;
+    }
+
+    .logo{
+        font-size:1.3rem;
+        letter-spacing:2px;
+    }
+
+    .nav-menu{
+        gap:14px;
+    }
+
+    .nav-menu a{
+        font-size:.65rem;
+        letter-spacing:1px;
+    }
+}
+
+@media(max-width:768px){
+
+    html,
+    body{
+        width:100%;
+        overflow-x:hidden;
+    }
+
+    nav{
+        justify-content:center;
+        padding:16px 20px;
+    }
+
+    .nav-menu{
+        display:none;
+    }
+
+    .logo{
+        font-size:1.25rem;
+        letter-spacing:3px;
+    }
+
+    /* HERO 100% RESPONSIVA */
+
+    .hero{
+        width:100vw;
+        min-height:100vh;
+        padding:0;
+        margin:0;
+    }
+
+    .hero::before{
+        width:100vw;
+        height:100%;
+        left:0;
+        top:0;
+
+        background-size:cover;
+        background-position:center center;
+    }
+
+    .hero-content{
+        width:100%;
+        padding:0 18px;
+    }
+
+    .hero h1{
+        font-size:clamp(2.4rem,12vw,4rem);
+        line-height:1.05;
+    }
+
+    .hero p{
+        font-size:.72rem;
+        letter-spacing:3px;
+    }
+
+    .btn-gold{
+        padding:16px 28px;
+        font-size:.68rem;
+        letter-spacing:2px;
+    }
+
+    section{
+        padding:80px 6%;
+    }
+
+    .zigzag-section,
+    .zigzag-section.reverse,
+    .about{
+        flex-direction:column !important;
+        text-align:center;
+        gap:40px;
+    }
+
+    .image-stack{
+        width:100%;
+        min-width:100%;
+        height:320px;
+    }
+
+    .about-img{
+        width:100%;
+        min-width:100%;
+    }
+
+    .content-box{
+        width:100%;
+        min-width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .content-box h3{
+        font-size:2rem;
+    }
+
+    .feature-list{
+        display:inline-block;
+        text-align:left;
+    }
+
+    .image-stack::after{
+        display:none;
+    }
+
+    .review-item{
+        padding:24px 30px;
+    }
+}
+
+@media(max-width:380px){
+
+    .hero-content{
+        padding:0 14px;
+    }
+
+    .hero h1{
+        font-size:2.1rem;
+    }
+
+    .logo{
+        font-size:1.05rem;
+    }
+
+    .btn-gold{
+        padding:14px 22px;
+        font-size:.62rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo">AURA</a>
+        <ul class="nav-menu">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#about">O Salão</a></li>
+            <li><a href="#extra">Transformações</a></li>
+            <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="home">
+        <div class="hero-content">
+            <p data-aos="fade-down" style="letter-spacing: 5px; color: var(--accent); margin-bottom: 15px;">ESTÉTICA CONCEITO</p>
+            <h1 data-aos="fade-up" data-aos-delay="300">Sua Aura <br>Irradiante.</h1>
+            <a href="#" class="btn-gold" data-aos="zoom-in" data-aos-delay="600">Agendar agora</a>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <i class="fas fa-crown"></i>
+                <h3>Coloração Royal</h3>
+                <p>Pigmentação inteligente que preserva a integridade da fibra capilar.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-scissors"></i>
+                <h3>Corte Visagista</h3>
+                <p>Harmonização facial através do design capilar personalizado[cite: 1, 2].</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-leaf"></i>
+                <h3>Spa Therapy</h3>
+                <p>Rituais de bem-estar e regeneração para couro cabeludo[cite: 1, 2].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: ONDE A BELEZA ENCONTRA A ALMA -->
+    <section class="about" id="about">
+        <div class="about-img" data-aos="fade-right"></div>
+        <div class="about-text" data-aos="fade-left">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px;">Onde a beleza encontra a alma.</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Acreditamos que cada cliente carrega uma essência única. No AURA, nosso objetivo é externalizar essa luz através de técnicas de luxo e um atendimento acolhedor[cite: 1, 2].</p>
+            <a href="#" class="btn-gold">Conheça nossa história</a>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO 01: TRANSFORMAÇÕES (ZIG-ZAG COMPLETO) -->
+    <section id="extra" style="background: #080808; padding-top: 50px;">
+        <div class="zigzag-section">
+            <div class="image-stack" data-aos="zoom-in">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=1000" alt="Cabelo Loiro Luxo">
+            </div>
+            <div class="content-box" data-aos="fade-left">
+                <h3>A Arte do Loiro</h3>
+                <p>Especialistas em mechas que iluminam sem agredir. Utilizamos as melhores marcas internacionais para garantir o brilho e a saúde dos fios[cite: 1, 2].</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Técnica de Contorno Facial</li>
+                    <li><i class="fas fa-check"></i> Proteção Plex em todos os processos</li>
+                    <li><i class="fas fa-check"></i> Tonalização Personalizada</li>
+                </ul>
+                <a href="https://instagram.com/" class="btn-gold" style="font-size: 0.7rem;">Ver Resultados no Instagram</a>
+            </div>
+        </div>
+
+        <!-- NOVA SEÇÃO 02: EXPERIÊNCIA (ZIG-ZAG REVERSO) -->
+        <div class="zigzag-section reverse">
+            <div class="image-stack" data-aos="zoom-in">
+                <img src="https://images.adsttc.com/media/images/6013/8e21/f91c/8196/0900/0312/large_jpg/Roby_Salao_Beleza--4.jpg?1611894292" alt="Espaço Interno">
+            </div>
+            <div class="content-box" data-aos="fade-right">
+                <h3>Ambiente Exclusivo</h3>
+                <p>Nossa estrutura foi desenhada para ser seu refúgio urbano. Desfrute de um ambiente climatizado com isolamento acústico e bar gourmet[cite: 1, 2].</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-coffee"></i> Cafés e Drinks de Boas-vindas</li>
+                    <li><i class="fas fa-music"></i> Playlist Curada para Relaxamento</li>
+                    <li><i class="fas fa-shield-alt"></i> Total Privacidade no Atendimento</li>
+                </ul>
+                <a href="#" class="btn-gold" style="font-size: 0.7rem;">Agendar Visita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTRA DE AVALIAÇÕES RÁPIDAS (SCROLL INFINITO) -->
+    <div class="reviews-marquee">
+        <div class="marquee-content">
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "Melhor loiro que já fiz na vida!" - Mariana L.</div>
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "O atendimento é impecável, me senti uma rainha." - Carla S.</div>
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "Ambiente maravilhoso e profissionais de elite." - Beatriz F.</div>
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "Finalmente encontrei o corte perfeito para o meu rosto." - Juliana M.</div>
+            <!-- Duplicado para efeito infinito -->
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "Melhor loiro que já fiz na vida!" - Mariana L.</div>
+            <div class="review-item"><span>★ ★ ★ ★ ★</span> "O atendimento é impecável, me senti uma rainha." - Carla S.</div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ PROFISSIONAL -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo">AURA</a>
+                <p style="margin-top: 25px; color: var(--text-muted); line-height: 1.6;">Onde o luxo e o cuidado se encontram para transformar sua autoestima. Referência em visagismo e colorimetria avançada[cite: 1, 2].</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">O Salão</a></li>
+                    <li><a href="#extra">Transformações</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent);"></i> (21) 99999-9999</a></li>
+                    <li><a href="#"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent);"></i> contato@aura.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent);"></i> Rua da Elegância, 1000 - RJ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Aura Concept Salon. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: false });
+        
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>
